@@ -1,0 +1,6 @@
+abc = input("請輸入一個網址：") #https://www.facebook.com/dscareer
+
+domain = abc.split("/")
+
+print("該網址網域為："+domain[2])
+
