@@ -1,0 +1,4 @@
+s=input("input:")
+
+print("hello world，"+s)
+
