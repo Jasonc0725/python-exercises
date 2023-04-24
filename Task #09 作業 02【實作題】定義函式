@@ -1,0 +1,25 @@
+n = int(input("請輸入一個數字:")) # 20
+
+def isPrime (n):
+  is_Prime = True
+  for i in range(2,n):
+    if n % i == 0:
+      is_Prime = False
+      break 
+    else:
+      is_Prime = True
+  return is_Prime
+         
+def Primes(n):
+  result = []
+  for i in range(2, n):
+    if isPrime(i) == True:
+      result.append(i)
+  return result
+
+print(Primes(n)) # 2, 3, 5, 7, 11, 13, 17, 19
+
+if isPrime(n) == True:
+  print(n,"is a prime number.")
+else:
+  print(n,"is not a prime number.")
