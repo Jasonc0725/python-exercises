@@ -1,0 +1,95 @@
+1. 解釋看看你心中的「函式」是什麼？為什麼要使用「函式」？
+
+(在這裡回答)像是一種方法或是功能，可以使程式更加模組化，可讀性更佳
+
+2. 試著說明以下程式的「執行順序」，執行的順序會長怎樣（盡可能地拆分為運算的最小單位）？
+
+def f(a, b):
+if a > b:
+return a
+return b
+
+max = f(3, 5)
+max = f(6, f(3, 5))
+max = f(max, f(1, 2))
+
+(在這裡回答)呼叫函式a=3，b=5，return b
+
+呼叫函式先執行(3，5)，return b，之後a=6，b=5，return a
+
+呼叫函式先執行(1，2)，return b，之後a=6,b=2,return a
+3. 以下程式可以會傳 a, b 的最大值，如何改寫成可以接收 f(a, b), f(a, b, c), f(a, b, c, ...) 等不同個數輸入的最大值函式可以怎麼做？
+
+def f(a, b):
+if a > b:
+return a
+return b
+
+f(3, 5) # O
+f(3, 4, 5) # X
+f(3, 4, 5, 6, 7) # X
+(在這裡回答)def f(*args):
+
+return max(args)
+
+f(3, 5) # 5
+
+f(3, 4, 5) # 5
+
+f(3, 4, 5, 6, 7) # 7
+
+4. 請問下方程式碼會回傳什麼結果？
+
+a = 'A'
+
+def f(b):
+a = 'AAA'
+c = 'C'
+print(a)
+print(b)
+print(c)
+return b
+
+print(a)
+print(f('B'))
+print(a)
+
+(在這裡回答)A
+
+AAA
+
+B
+
+C
+
+B
+
+A
+
+5. 請問下方程式碼會回傳什麼結果？
+
+a = 'A'
+
+def f(b):
+c = 'C'
+print(a)
+a = 'AAA'
+print(b)
+print(c)
+return b
+
+print(a)
+print(f('B'))
+print(a)
+
+(在這裡回答)A
+a 在使用前沒有被定義，造成無法找到這個變數的值，而回傳UnboundLocalError: local variable ‘a’ referenced before assignment的error。
+A
+
+
+
+
+
+我要上傳
+
+
